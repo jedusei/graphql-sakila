@@ -1,6 +1,15 @@
-let modules = [];
+let modules = [
+    require('./Actor'),
+    require('./Misc'),
+    require('./Customer'),
+    require('./Film'),
+    require('./Payment'),
+    require('./Rental'),
+    require('./Staff'),
+    require('./Store')
+];
 
-let typeDefs = ["type Query { x:Int }"];
+let typeDefs = ["type Query"];
 let resolvers = [];
 modules.forEach(m => {
     typeDefs.push(m.typeDefs);
