@@ -4,7 +4,7 @@
   "description": "GraphQL API for MySQL Sakila database (ported to MongoDB)",
   "main": "main.js",
   "scripts": {
-    "start": "node --require=dotenv/config.js main.js",
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joseph Edusei",

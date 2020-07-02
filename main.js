@@ -1,3 +1,6 @@
+// Set environment variables
+require('dotenv').config();
+
 // Initialize and configure server application
 const express = require('express');
 const app = express();
@@ -17,4 +20,5 @@ MongoClient.connect()
         console.error("An error occurred while connecting to MongoDB.");
         console.error(err);
         process.exit(1);
-    }); 
+    });
+
