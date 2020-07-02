@@ -1,9 +1,10 @@
+const { gql } = require('apollo-server-express');
 const {
     StaffCollection,
-    StoreCollection,
-    RentalCollection } = require('../MongoDB').collections;
+    StoreCollection
+} = require('../MongoDB').collections;
 
-const typeDefs = `
+const typeDefs = gql`
     extend type Query {
         staff(id: Int!): Staff
     }

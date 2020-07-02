@@ -1,6 +1,7 @@
 const { CountryCollection, CityCollection } = require('../MongoDB').collections;
+const { gql } = require('apollo-server-express');
 
-const typeDefs = `
+const typeDefs = gql`
     extend type Query {
         searchForCountry(name: String!): [Country!]!
         searchForCity(name: String!): [City!]!

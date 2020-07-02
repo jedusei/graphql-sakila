@@ -1,6 +1,7 @@
+const { gql } = require('apollo-server-express');
 const { ActorCollection, FilmCollection } = require('../MongoDB').collections;
 
-const typeDefs = `
+const typeDefs = gql`
     extend type Query {
         actor(id: Int!): Actor
     }

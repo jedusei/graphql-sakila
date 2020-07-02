@@ -1,10 +1,11 @@
+const { gql } = require('apollo-server-express');
 const {
     StoreCollection,
     AddressCollection,
     StaffCollection
 } = require('../MongoDB').collections;
 
-const typeDefs = `
+const typeDefs = gql`
     extend type Query {
         stores: [Store]
         store(id: Int): Store
@@ -28,6 +29,6 @@ const resolvers = {
         manager: (store) => StaffCollection.findOne({ _id: store.manager_staff_id }),
         staff: (store) => StaffCollection.find({ store_id: store._id }).toArray()
     }
-}
+};
 
 module.exports = { typeDefs, resolvers };

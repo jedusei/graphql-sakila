@@ -1,6 +1,7 @@
+const { gql } = require('apollo-server-express');
 const moment = require('moment');
 
-const typeDefs = `
+const typeDefs = gql`
     type Payment {
         payment_date: String!
         amount: Float!

@@ -1,3 +1,4 @@
+const { gql } = require('apollo-server-express');
 const {
     ActorCollection,
     CategoryCollection,
@@ -6,7 +7,7 @@ const {
     RentalCollection
 } = require('../MongoDB').collections;
 
-let typeDefs = `
+const typeDefs = gql`
     extend type Query {
         film(id: Int!): Film
     }
@@ -26,7 +27,7 @@ let typeDefs = `
         rentals: [Rental!]!
     }
 `
-let resolvers = {
+const resolvers = {
     Query: {
         film: (_, args) => FilmCollection.findOne({ _id: args.id })
     },
@@ -38,6 +39,6 @@ let resolvers = {
         actors: (film) => ActorCollection.find({ _id: { $in: film.actor_ids } }).toArray(),
         rentals: (film) => RentalCollection.find({ film_id: film._id }).toArray()
     }
-}
+};
 
 module.exports = { typeDefs, resolvers };
